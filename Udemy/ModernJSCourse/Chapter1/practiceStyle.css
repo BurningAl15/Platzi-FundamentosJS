@@ -1,0 +1,26 @@
+.flexbox{
+    display:flex;
+    height: 200px;
+    flex-direction: column;
+    /* No caiga (nowrap) */
+    flex-wrap: wrap;
+    /* HORIZONTAL ALIGN */
+    /* space between didn't give spacing in the first and last element*/
+    /* space evenly gives the same spacing between all elements including before the first element and after the last element */
+    /* space around gives some space at left and right of the element, every element, so is very similar to space evenly, but not the same*/
+    
+    /* VERTICAL ALIGN */
+    justify-content: center;
+    /* align-items: center; */
+    border: 1px solid purple;
+}
+
+.box{
+    width: 50px;
+    height:50px;
+    border: 1px solid red;
+    /* align-self: flex-start; */
+    /* margin: 5px; */
+    /* 0 - 1 values */
+    flex-shrink: 0;
+}
