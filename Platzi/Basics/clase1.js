@@ -45,3 +45,26 @@ function printStuff(stuff,option)
     }
     document.write('<br>');
 }
+
+//Class 3 - Numbers
+var numericAge=25;
+
+var nextYearAge=numericAge+1;
+
+UpdateInTime(10);
+function UpdateInTime(years)
+{
+    numericAge+=years;
+    document.write("In "+ `${years}`+" years i'll have " + numericAge);
+}
+
+document.write("<br>");
+percentage(10,15);
+
+function percentage(total,current)
+{
+    document.write("<br>");
+    document.write(current + " is the "+(current/total*100)+"% of "+total);
+    document.write("<br>");
+    document.write(current + " is "+(current/total)+" times "+total);
+}
