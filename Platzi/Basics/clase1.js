@@ -1,5 +1,10 @@
 const div=document.querySelector('div');
 
+div.style.display="flex";
+div.style.flexWrap="wrap";
+div.style.justifyContent="center";
+
+
 //Class 1 - Variables
 var name='Aldhair',lastname='Vera Camacho';
 var fullname=name+" "+lastname;
@@ -24,7 +29,17 @@ for(var i=0;i<myInfo.length;i++)
 
 div.innerHTML+=`<p>${"1) "+fullname}</p>`
 div.innerHTML+=`<p>${"2) "+completeName}</p>`
-
+const p=document.querySelectorAll('p');
+// p.setAttribute('class','para');
+p.forEach(element=>{
+    element.style.flexShrink=0;
+    element.style.borderRadius='5px';
+    element.style.borderStyle='solid';
+    element.style.borderColor='purple';
+    element.style.margin='5px';
+    element.style.padding='5px';
+    element.style.backgroundColor="gray";
+});
 
 function RandomBetween(_minVal,_maxVal)
 {
