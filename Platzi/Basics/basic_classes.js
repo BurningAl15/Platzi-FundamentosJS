@@ -83,3 +83,77 @@ function percentage(total,current)
     document.write("<br>");
     document.write(current + " is "+(current/total)+" times "+total);
 }
+
+
+// OBJECTS
+
+var me={
+    name: 'Aldhair ',
+    lastName: 'Vera Camacho ',
+    age: 25
+}
+
+var she={
+    name: 'Nancy ',
+    lastName: 'Rojas Salvatierra ',
+    age:23
+}
+
+function printObject(object)
+{
+    document.write('<br>');
+    var {name}=object;
+    //var _name=object.name;
+    document.write(name);
+
+    var {lastName}=object;
+    //var _lastName=object.lastName;
+    document.write(lastName);
+
+    var {age}=object;
+    //var _age=object.age;
+    document.write(age);
+}
+
+document.write('<br>');
+document.write('<br>');
+document.write("name ");
+document.write("lastName ");
+document.write("age");
+
+// document.write('<br>');
+// document.write(me.name);
+// document.write(me.lastName);
+// document.write(me.age);
+printObject(me);
+
+// document.write('<br>');
+// document.write(she.name);
+// document.write(she.lastName);
+// document.write(she.age);
+printObject(she);
+
+function birthday(object){
+    // object.age+=1;
+    // document.write('<br>');
+    // document.write(object.name);
+    // document.write(object.age);
+    return{
+        ...object,
+        age:object.age+1
+    }
+}
+
+document.write('<br>');
+// document.write(me.name);
+document.write(birthday(me).name);
+document.write(birthday(me).age);
+
+//COMPARATIVES
+/*
+x=4
+y="4"
+
+x==y -> true -> compare using a same base type
+x===y -> false -> compares using the current type (GOOD PRACTICE!)
+*/
