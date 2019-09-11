@@ -67,8 +67,15 @@ class Person {
         this.height=height;
     }
 
-    greet(){
-        console.log(`Hey, my name is ${this.name} ${this.lastname}`);
+    greet(fn){
+        var {name,lastname}=this;
+
+        // console.log(`Hey, my name is ${this.name} ${this.lastname}`);
+        console.log(`Hey, my name is ${name} ${lastname}`);
+
+        if(fn){
+             fn(name,lastname,false);
+        }
     }
 
     isTall(){
@@ -77,21 +84,35 @@ class Person {
     }
 };
 
-var al=new Person("aldhair","vera camacho",1.78);
-al.greet();
-al.isTall();
+// var al=new Person("aldhair","vera camacho",1.78);
+// al.greet();
+// al.isTall();
 
 class Developer extends Person {
     constructor(name,lastname,height){
         super(name,lastname,height);
-        // this.name=name;
-        // this.lastname=lastname;
-        // this.height=height;
     }
-    greet(){
-        console.log(`Hey, my name is ${this.name} ${this.lastname} and im a developer`);
+
+    greet(fn){
+        var {name,lastname}=this;
+        // console.log(`Hey, my name is ${this.name} ${this.lastname} and im a developer`);
+        console.log(`Hey, my name is ${name} ${lastname} and im a developer`);
+        
+        if(fn){
+            fn(name,lastname,true);
+        }
     }
 }
 
 var alDev=new Developer("Al","Vera Camacho",1.78);
 alDev.greet();
+
+//Functions as parameters
+function respondGreet(name,lastname,isDev){
+    console.log(`Good day ${name} ${lastname}`);
+    if(isDev){
+        console.log(`Damn! didn't know you were a dev`);
+    }
+}
+
+alDev.greet(respondGreet);
