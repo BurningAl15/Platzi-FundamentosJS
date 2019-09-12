@@ -57,8 +57,24 @@ const onCharacterResponse=function(character){
 
 function getCharacter(id,callback){
     const url=`${API_URL}${PEOPLE_URL.replace(':id',id)}`;
-   
-    $.get(url,opts,onCharacterResponse);
+    //1
+    // $.get(url,opts,onCharacterResponse);
+    // console.log(id);
+
+    //2
+    // $.get(url,opts,function(character){
+    //     console.log(`Hey, im ${character.name}`);
+    //     if(callback){
+    //         callback();
+    //     }
+    // });
+
+    $
+        .get(url,opts,callback)
+            .fail(() => {
+                console.log(`We got an error, we cannot get the character ${id}`)
+            }
+        );
 }
 
 // getCharacter(1);
@@ -68,9 +84,22 @@ function getCharacter(id,callback){
 //     getCharacter(i,getCharacter((i+1),getCharacter(i+5)));
 // }
 
-getCharacter(1,
-    getCharacter((5),
-        getCharacter(10, getCharacter(11)
-            )
-        )
-    );
+// getCharacter(1,
+//     getCharacter((5),
+//         getCharacter(10, getCharacter(11)
+//             )
+//         )
+//     );
+
+//Basically we get the data and then we call the callback to print the data.
+getCharacter(1,function(character){
+    console.log(`Hey, im ${character.name}`);
+    
+    getCharacter(2,function(character){
+        console.log(`Hey, im ${character.name}`);
+        
+        getCharacter(3,function(character){
+            console.log(`Hey, im ${character.name}`);
+        })  
+    })
+})
