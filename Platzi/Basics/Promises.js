@@ -52,26 +52,53 @@ function onError(id){
     console.log(`The error happend when we try to get the character ${id}`)
 }
 
-getCharacter(1)
-.then((character1)=>{
-    console.log(`This character is ${character1.name}`);
-    return getCharacter(2)
-})
-.then((character2)=>{
-    console.log(`This character is ${character2.name}`);
-    return getCharacter(3)
-})
-.then((character3)=>{
-    console.log(`This character is ${character3.name}`);
-    return getCharacter(5)
-})
-.then((character4)=>{
-    console.log(`This character is ${character4.name}`);
-    return getCharacter(7)
-})
-.catch(onerror)
+
+//Nested Promises
+// getCharacter(1)
+// .then((character1)=>{
+//     console.log(`This character is ${character1.name}`);
+//     return getCharacter(2)
+// })
+// .then((character2)=>{
+//     console.log(`This character is ${character2.name}`);
+//     return getCharacter(3)
+// })
+// .then((character3)=>{
+//     console.log(`This character is ${character3.name}`);
+//     return getCharacter(5)
+// })
+// .then((character4)=>{
+//     console.log(`This character is ${character4.name}`);
+//     return getCharacter(7)
+// })
+// .catch(onerror)
 // .catch((id)=>{
 
 // })
 
-//Nested Promises
+
+// var promises=ids.map((id)=>{
+//     return getCharacter(id);
+// })
+
+
+async function getCharacters(){
+    var ids=[1,2,3,4,5,6,7]
+    var promises=ids.map(id=> getCharacter(id))
+    
+    try{
+        //This line while wait until all promises resolve
+        var characters=await Promise.all(promises);
+        console.log(characters);
+    } catch(id){
+        onError(id);
+    }
+
+
+    // Promise
+    // .all(promises)
+    // .then(characters=> console.log(characters))
+    // .catch(onError);
+}
+
+getCharacters();
