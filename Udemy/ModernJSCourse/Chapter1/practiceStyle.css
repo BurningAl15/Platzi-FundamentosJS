@@ -1,7 +1,7 @@
 .flexbox{
     display:flex;
     height: 200px;
-    flex-direction: column;
+    /* flex-direction: column; */
     /* No caiga (nowrap) */
     flex-wrap: wrap;
     /* HORIZONTAL ALIGN */
@@ -10,17 +10,32 @@
     /* space around gives some space at left and right of the element, every element, so is very similar to space evenly, but not the same*/
     
     /* VERTICAL ALIGN */
-    justify-content: center;
+    justify-content: space-around;
+    align-content: center;
     /* align-items: center; */
     border: 1px solid purple;
+    background-color:green
 }
 
 .box{
     width: 50px;
     height:50px;
     border: 1px solid red;
+    background-color: orange;
     /* align-self: flex-start; */
     /* margin: 5px; */
     /* 0 - 1 values */
     flex-shrink: 0;
+}
+
+.error{
+    padding: 10px;
+    color: crimson;
+    border: 1px dotted crimson;
+}
+
+.success{
+    padding: 10px;
+    color: limegreen;
+    border: 1px dotted limegreen;
 }
