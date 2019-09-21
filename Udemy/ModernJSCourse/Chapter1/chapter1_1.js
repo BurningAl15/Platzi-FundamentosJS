@@ -20,7 +20,6 @@ printTheStuff("eibici",2);
 function printTheStuff(stuff, option=0)
 {
     document.write("</br>");
-    
     for(var i=0;i<stuff.length;i++)
     {
         switch(option)
